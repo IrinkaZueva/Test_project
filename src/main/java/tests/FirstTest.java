@@ -1,3 +1,5 @@
+package tests;
+
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -41,5 +43,4 @@ public class FirstTest {
         String actualResult = trialCode(7);
         assertEquals(actualResult, "FAIL");
     }
-
 }
