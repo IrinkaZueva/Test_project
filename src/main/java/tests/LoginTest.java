@@ -29,7 +29,4 @@ public class LoginTest extends BaseTest {
         assertTrue(isErrorMsgDisplayed, "The error message fails appear");
         assertEquals(errorMsg, "Epic sadface: Sorry, this user has been locked out.");
     }
-
 }
-
-
