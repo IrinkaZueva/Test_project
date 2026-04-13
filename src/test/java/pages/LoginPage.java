@@ -22,7 +22,6 @@ public class LoginPage extends BasePage {
         fillLoginField(login);
         fillPasswordField(password);
         clickButton();
-
     }
 
     public void fillLoginField(String login) {

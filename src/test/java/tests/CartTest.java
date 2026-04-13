@@ -11,7 +11,7 @@ public class CartTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         assertTrue(productsPage.pageTitleDisplayed());
-        cartPage.GoToCart();
+        cartPage.goToCart();
         assertEquals(cartPage.getTitle(), "Your Cart");
     }
 }
