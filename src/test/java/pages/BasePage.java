@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class BasePage {
     public static final String BASE_URL = "https://saucedemo.com";
+    public static final String DATA_TEST_PATTERN = "[data-test='%s']";
 
     WebDriver driver;
 

@@ -12,7 +12,6 @@ public class LoginTest extends BaseTest {
     public void checkLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-
         assertEquals(productsPage.getTitle(), "Products");
     }
 
@@ -20,7 +19,6 @@ public class LoginTest extends BaseTest {
     public void checkIncorrectLogin(String user, String password, String errMsg) {
         loginPage.open();
         loginPage.login(user, password);
-
         assertTrue(loginPage.isErrorMsgDisplayed(), "The error message fails appear");
         assertEquals(loginPage.getErrorMsg(), errMsg);
     }
