@@ -2,8 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class CartTest extends BaseTest {
     @Test
@@ -13,5 +12,17 @@ public class CartTest extends BaseTest {
         assertTrue(productsPage.pageTitleDisplayed());
         cartPage.goToCart();
         assertEquals(cartPage.getTitle(), "Your Cart");
+    }
+
+    @Test
+    public void checkGoodsInCart() {
+        final  String goodsName = "Sauce Labs Bike Light";
+        loginPage.open();
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.addToCart(goodsName);
+        cartPage.goToCart();
+        assertFalse(cartPage.getProductsNames().isEmpty());
+        assertEquals(cartPage.getProductsNames().size(), 1);
+        assertTrue(cartPage.getProductsNames().contains(goodsName));
     }
 }
