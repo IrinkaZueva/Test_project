@@ -10,17 +10,18 @@ public class CartTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         assertTrue(productsPage.pageTitleDisplayed());
-        cartPage.goToCart();
+        cartPage.navigationPanel.goToCart();
         assertEquals(cartPage.getTitle(), "Your Cart");
     }
 
     @Test
     public void checkGoodsInCart() {
-        final  String goodsName = "Sauce Labs Bike Light";
+        final String goodsName = "Sauce Labs Bike Light";
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addToCart(goodsName);
-        cartPage.goToCart();
+        assertEquals(productsPage.checkBtnName(goodsName), "Remove");
+        productsPage.navigationPanel.goToCart();
         assertFalse(cartPage.getProductsNames().isEmpty());
         assertEquals(cartPage.getProductsNames().size(), 1);
         assertTrue(cartPage.getProductsNames().contains(goodsName));
