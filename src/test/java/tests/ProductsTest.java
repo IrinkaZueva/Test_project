@@ -33,7 +33,7 @@ public class ProductsTest extends BaseTest {
         assertTrue(productsPage.pageTitleDisplayed());
         productsPage.navigationPanel.openBurgerMenu();
         productsPage.navigationPanel.logout();
-        assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+        assertEquals(driver.getCurrentUrl(), loginPage.getCurrentBaseUrl());
         assertTrue(loginPage.isLoginBtnDisplayed());
     }
 }

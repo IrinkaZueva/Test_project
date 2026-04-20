@@ -46,4 +46,8 @@ public class LoginPage extends BasePage {
     public boolean isLoginBtnDisplayed() {
         return driver.findElement(submitButton).isDisplayed();
     }
+
+    public String getCurrentBaseUrl() {
+        return BASE_URL;
+    }
 }
