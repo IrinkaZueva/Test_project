@@ -25,4 +25,15 @@ public class ProductsTest extends BaseTest {
         assertEquals(productsPage.checkCounterValue(), "4");
         assertEquals(productsPage.checkCounterColor(), "rgba(226, 35, 26, 1)");
     }
+
+    @Test
+    public void checkLogout() {
+        loginPage.open();
+        loginPage.login("standard_user", "secret_sauce");
+        assertTrue(productsPage.pageTitleDisplayed());
+        productsPage.navigationPanel.openBurgerMenu();
+        productsPage.navigationPanel.logout();
+        assertEquals(driver.getCurrentUrl(), loginPage.getCurrentBaseUrl());
+        assertTrue(loginPage.isLoginBtnDisplayed());
+    }
 }

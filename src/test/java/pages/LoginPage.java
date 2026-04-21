@@ -42,4 +42,12 @@ public class LoginPage extends BasePage {
     public boolean isErrorMsgDisplayed() {
         return driver.findElement(errorMsg).isDisplayed();
     }
+
+    public boolean isLoginBtnDisplayed() {
+        return driver.findElement(submitButton).isDisplayed();
+    }
+
+    public String getCurrentBaseUrl() {
+        return BASE_URL;
+    }
 }
