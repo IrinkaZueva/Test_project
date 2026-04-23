@@ -6,6 +6,8 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static pages.BasePage.BASE_URL;
+import static user.UserFactory.withAdminPermission;
 
 public class ProductsTest extends BaseTest {
     List<String> goodsList =
@@ -16,7 +18,7 @@ public class ProductsTest extends BaseTest {
     @Test
     public void checkGoodsAdded() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(withAdminPermission());
         assertTrue(productsPage.pageTitleDisplayed());
         productsPage.addToCart();
         for (String goods : goodsList) {
@@ -29,11 +31,11 @@ public class ProductsTest extends BaseTest {
     @Test
     public void checkLogout() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(withAdminPermission());
         assertTrue(productsPage.pageTitleDisplayed());
         productsPage.navigationPanel.openBurgerMenu();
         productsPage.navigationPanel.logout();
-        assertEquals(driver.getCurrentUrl(), loginPage.getCurrentBaseUrl());
+        assertEquals(driver.getCurrentUrl(), BASE_URL);
         assertTrue(loginPage.isLoginBtnDisplayed());
     }
 }
