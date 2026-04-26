@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PropertyReader;
@@ -17,5 +18,13 @@ public class BasePage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         this.navigationPanel = new NavigationPanel(driver);
+    }
+
+    protected By getTitleLocator() {
+        return By.cssSelector(".title");
+    }
+
+    public String getTitle() {
+        return driver.findElement(getTitleLocator()).getText();
     }
 }
