@@ -12,7 +12,6 @@ public class CheckoutOverviewPage extends BasePage {
     public static final String validLastName = "IVANOV";
     public static final String validZipCode = "672000";
 
-
     public CheckoutOverviewPage(WebDriver driver) {
         super(driver);
     }
