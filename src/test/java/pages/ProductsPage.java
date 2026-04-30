@@ -13,10 +13,6 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
-    public String getTitle() {
-        return driver.findElement(titlePage).getText();
-    }
-
     public boolean pageTitleDisplayed() {
         return driver.findElement(titlePage).isDisplayed();
     }
