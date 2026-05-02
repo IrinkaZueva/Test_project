@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -8,27 +9,32 @@ public class CheckoutOverviewPage extends BasePage {
     private final By finishBtn = By.cssSelector(DATA_TEST_PATTERN.formatted("finish"));
     private final By completeHeader = By.cssSelector(DATA_TEST_PATTERN.formatted("complete-header"));
     private final By backHomeBtn = By.cssSelector(DATA_TEST_PATTERN.formatted("back-to-products"));
-    public static final String validFirstName = "IVAN";
-    public static final String validLastName = "IVANOV";
-    public static final String validZipCode = "672000";
 
     public CheckoutOverviewPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Проверяем отображение формы оплаты")
     public boolean isDisplayedPayInfo() {
         return driver.findElement(payInfo).isDisplayed();
     }
 
+    @Step("Проверяем отображение сообщения об успешном оформлении заказа")
     public boolean isDisplayedCompleteHeader() {
         return driver.findElement(completeHeader).isDisplayed();
     }
 
-    public void clickFinish() {
+    @Step("Кликаем по кнопке Finish")
+    public CheckoutOverviewPage clickFinish() {
         driver.findElement(finishBtn).click();
+
+        return this;
     }
 
-    public void clickBackHome() {
+    @Step("Кликаем по кнопке Back Home")
+    public CheckoutOverviewPage clickBackHome() {
         driver.findElement(backHomeBtn).click();
+
+        return this;
     }
 }

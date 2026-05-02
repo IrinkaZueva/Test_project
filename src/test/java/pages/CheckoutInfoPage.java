@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,29 +17,41 @@ public class CheckoutInfoPage extends BasePage {
         super(driver);
     }
 
-    public void clickContinue() {
+    @Step("Кликаем Continue")
+    public CheckoutInfoPage clickContinue() {
         driver.findElement(continueBtn).click();
+
+        return this;
     }
 
-    public void clickCancel() {
+    @Step("Кликаем Cancel")
+    public CheckoutInfoPage clickCancel() {
         driver.findElement(cancelBtn).click();
+
+        return this;
     }
 
+    @Step("Проверяем отображение формы оформления заказа")
     public boolean isDisplayed() {
         return driver.findElement(formCheckout).isDisplayed();
     }
 
-    public void fillForma(String firstName, String lastName, String zipcode) {
+    @Step("Заполняем форму оформления заказа:имя, фамилия, индекс")
+    public CheckoutInfoPage fillForma(String firstName, String lastName, String zipcode) {
         driver.findElement(firstNameField).sendKeys(firstName);
         driver.findElement(lastNameField).sendKeys(lastName);
         driver.findElement(zipCodeField).sendKeys(zipcode);
         clickContinue();
+
+        return this;
     }
 
+    @Step("Получаем текст сообщения об ошибке")
     public String getErrorMsg() {
         return driver.findElement(errorMsg).getText();
     }
 
+    @Step("Проверяем отображение сообщения об ошибке")
     public boolean isErrorMsgDisplayed() {
         return driver.findElement(errorMsg).isDisplayed();
     }

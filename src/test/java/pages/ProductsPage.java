@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,27 +14,37 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
+    @Step("Проверяем отображение названия страницы")
     public boolean pageTitleDisplayed() {
         return driver.findElement(titlePage).isDisplayed();
     }
 
-    public void addToCart() {
+    @Step("Добавляем первый товар в корзину")
+    public ProductsPage addToCart() {
         driver.findElements(addToCartBtn).getFirst().click();
+
+        return this;
     }
 
-    public void addToCart(final String goodsName) {
+    @Step("Добавляем выбранный товар в корзину")
+    public ProductsPage addToCart(final String goodsName) {
         By addToCart = By.xpath(ADD_TO_CART_PATTERN.formatted(goodsName));
         driver.findElement(addToCart).click();
+
+        return this;
     }
 
+    @Step("Получаем значение количества товаров в корзине")
     public String checkCounterValue() {
         return driver.findElement(cartBadge).getText();
     }
 
+    @Step("Получаем цвет каунтера корзины")
     public String checkCounterColor() {
         return driver.findElement(cartBadge).getCssValue("background-color");
     }
 
+    @Step("Получаем название кнопки")
     public String checkBtnName(final String goodsName) {
         return driver.findElement(By.xpath(ADD_TO_CART_PATTERN.formatted(goodsName))).getText();
     }

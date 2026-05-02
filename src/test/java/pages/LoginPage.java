@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import user.User;
@@ -14,36 +15,54 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void open() {
+    @Step("Открытие сайта")
+    public LoginPage open() {
         driver.get(BASE_URL);
+
+        return this;
     }
 
-    public void login(User user) {
+    @Step("Логинимся под кредами пользователя")
+    public LoginPage login(User user) {
         fillLoginField(user.getLogin());
         fillPasswordField(user.getPassword());
         clickButton();
+
+        return this;
     }
 
-    public void fillLoginField(String login) {
+    @Step("Заполняем поле ввода логина {login}")
+    public LoginPage fillLoginField(String login) {
         driver.findElement(userField).sendKeys(login);
+
+        return this;
     }
 
-    public void fillPasswordField(String password) {
+    @Step("Заполняем поле ввода пароля {password}")
+    public LoginPage fillPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
+
+        return this;
     }
 
-    public void clickButton() {
+    @Step("Кликаем по кнопке Login")
+    public LoginPage clickButton() {
         driver.findElement(submitButton).click();
+
+        return this;
     }
 
+    @Step("Получаем текст из сообщения об ошибке")
     public String getErrorMsg() {
         return driver.findElement(errorMsg).getText();
     }
 
+    @Step("Проверяем отображение сообщения об ошибке")
     public boolean isErrorMsgDisplayed() {
         return driver.findElement(errorMsg).isDisplayed();
     }
 
+    @Step("Проверяем отображение кнопки Login")
     public boolean isLoginBtnDisplayed() {
         return driver.findElement(submitButton).isDisplayed();
     }
