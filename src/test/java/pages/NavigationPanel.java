@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,15 +14,24 @@ public class NavigationPanel {
         this.driver = driver;
     }
 
-    public void goToCart() {
+    @Step("Переходим в корзину")
+    public NavigationPanel goToCart() {
         driver.findElement(cartBtn).click();
+
+        return this;
     }
 
-    public void openBurgerMenu() {
+    @Step("Открываем бургер-меню")
+    public NavigationPanel openBurgerMenu() {
         driver.findElement(burgerBtn).click();
+
+        return this;
     }
 
-    public void logout() {
+    @Step("Выбираем Logout")
+    public NavigationPanel logout() {
         driver.findElement(logoutMenuItem).click();
+
+        return this;
     }
 }

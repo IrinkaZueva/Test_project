@@ -1,7 +1,9 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PropertyReader;
 
@@ -24,7 +26,9 @@ public class BasePage {
         return By.cssSelector(".title");
     }
 
+    @Step("Получаем название страницы")
     public String getTitle() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(getTitleLocator()));
         return driver.findElement(getTitleLocator()).getText();
     }
 }
