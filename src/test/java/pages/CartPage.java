@@ -29,7 +29,7 @@ public class CartPage extends BasePage {
         return names;
     }
 
-    @Step("Кликаем Checkout")
+    @Step("Нажимаем кнопку Checkout")
     public CartPage clickCheckout() {
         driver.findElement(checkoutBtn).click();
 

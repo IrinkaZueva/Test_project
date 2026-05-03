@@ -24,14 +24,14 @@ public class CheckoutOverviewPage extends BasePage {
         return driver.findElement(completeHeader).isDisplayed();
     }
 
-    @Step("Кликаем по кнопке Finish")
+    @Step("Нажимаем кнопку Finish")
     public CheckoutOverviewPage clickFinish() {
         driver.findElement(finishBtn).click();
 
         return this;
     }
 
-    @Step("Кликаем по кнопке Back Home")
+    @Step("Нажимаем кнопку Back Home")
     public CheckoutOverviewPage clickBackHome() {
         driver.findElement(backHomeBtn).click();
 

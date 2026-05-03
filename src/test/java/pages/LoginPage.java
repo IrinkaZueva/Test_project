@@ -45,7 +45,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("Кликаем по кнопке Login")
+    @Step("Нажимаем кнопку Login")
     public LoginPage clickButton() {
         driver.findElement(submitButton).click();
 

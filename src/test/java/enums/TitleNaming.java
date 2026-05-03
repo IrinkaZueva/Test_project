@@ -13,5 +13,4 @@ public enum TitleNaming {
     OVERVIEW("Checkout: Overview");
 
     private final String displayName;
-
 }

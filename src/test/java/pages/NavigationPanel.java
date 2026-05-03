@@ -28,7 +28,7 @@ public class NavigationPanel {
         return this;
     }
 
-    @Step("Кликаем Logout")
+    @Step("Выбираем Logout")
     public NavigationPanel logout() {
         driver.findElement(logoutMenuItem).click();
 

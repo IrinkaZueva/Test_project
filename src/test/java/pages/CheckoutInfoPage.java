@@ -17,14 +17,14 @@ public class CheckoutInfoPage extends BasePage {
         super(driver);
     }
 
-    @Step("Кликаем Continue")
+    @Step("Нажимаем кнопку Continue")
     public CheckoutInfoPage clickContinue() {
         driver.findElement(continueBtn).click();
 
         return this;
     }
 
-    @Step("Кликаем Cancel")
+    @Step("Нажимаем кнопку Cancel")
     public CheckoutInfoPage clickCancel() {
         driver.findElement(cancelBtn).click();
 
